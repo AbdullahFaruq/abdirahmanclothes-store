@@ -115,7 +115,7 @@ export function HeroManager({ slides }: { slides: HeroImage[] }) {
           {error && (
             <p
               role="alert"
-              className="flex items-start gap-2 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+              className="flex items-start gap-2 border border-danger-line bg-danger-surface px-4 py-3 text-sm text-danger"
             >
               <AlertIcon className="mt-0.5 shrink-0" />
               {error}
@@ -231,7 +231,7 @@ export function HeroManager({ slides }: { slides: HeroImage[] }) {
                             )
                           }
                           aria-label={`Delete slide ${index + 1}`}
-                          className="flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-muted transition-colors hover:text-red-700 disabled:opacity-50"
+                          className="flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-muted transition-colors hover:text-danger disabled:opacity-50"
                         >
                           {busy ? <SpinnerIcon /> : <TrashIcon className="text-sm" />}
                           Delete

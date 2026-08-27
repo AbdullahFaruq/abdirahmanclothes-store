@@ -46,7 +46,7 @@ export function FavoriteButton({
       onClick={() => toggleFavorite(product)}
       aria-pressed={favorited}
       aria-label={label}
-      className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-bone/90 text-base text-ink shadow-[0_2px_10px_-4px_rgba(11,11,12,0.4)] backdrop-blur-sm transition-all duration-300 hover:bg-bone hover:text-brass focus-visible:opacity-100 md:h-10 md:w-10"
+      className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-on-scrim/90 text-base text-scrim shadow-[0_2px_10px_-4px_rgba(11,11,12,0.4)] backdrop-blur-sm transition-all duration-300 hover:bg-on-scrim hover:text-brass focus-visible:opacity-100 md:h-10 md:w-10"
     >
       <HeartIcon
         filled={favorited}

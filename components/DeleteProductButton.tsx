@@ -42,7 +42,7 @@ export function DeleteProductButton({
           type="button"
           onClick={onDelete}
           disabled={deleting}
-          className="flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-red-700 transition-opacity hover:opacity-70 disabled:opacity-50"
+          className="flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-danger transition-opacity hover:opacity-70 disabled:opacity-50"
         >
           {deleting ? <SpinnerIcon /> : null}
           {deleting ? "Deleting…" : "Confirm"}
@@ -64,7 +64,7 @@ export function DeleteProductButton({
       type="button"
       onClick={() => setConfirming(true)}
       aria-label={`Delete ${productName}`}
-      className="flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-muted transition-colors hover:text-red-700"
+      className="flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-muted transition-colors hover:text-danger"
     >
       <TrashIcon className="text-sm" />
       Delete

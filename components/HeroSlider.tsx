@@ -116,7 +116,7 @@ export function HeroSlider({ slides }: { slides: HeroImage[] }) {
             <SliderButton side="left" onClick={previous} label="Previous slide" />
             <SliderButton side="right" onClick={next} label="Next slide" />
 
-            <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2.5 rounded-full bg-ink/40 px-3.5 py-2.5 backdrop-blur-sm md:bottom-7">
+            <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2.5 rounded-full bg-scrim/40 px-3.5 py-2.5 backdrop-blur-sm md:bottom-7">
               {slides.map((slide, slideIndex) => (
                 <button
                   key={slide.id}
@@ -126,8 +126,8 @@ export function HeroSlider({ slides }: { slides: HeroImage[] }) {
                   aria-current={slideIndex === activeIndex ? "true" : undefined}
                   className={`h-1.5 rounded-full transition-all duration-500 ease-[cubic-bezier(0.22,0.61,0.36,1)] ${
                     slideIndex === activeIndex
-                      ? "w-8 bg-bone"
-                      : "w-1.5 bg-bone/55 hover:bg-bone/85"
+                      ? "w-8 bg-on-scrim"
+                      : "w-1.5 bg-on-scrim/55 hover:bg-on-scrim/85"
                   }`}
                 />
               ))}
@@ -158,7 +158,7 @@ function SliderButton({
       type="button"
       onClick={onClick}
       aria-label={label}
-      className={`absolute top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-bone/30 bg-ink/60 text-lg text-bone backdrop-blur-sm transition-all duration-300 hover:border-bone hover:bg-bone hover:text-ink md:h-13 md:w-13 md:text-xl ${
+      className={`absolute top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-on-scrim/30 bg-scrim/60 text-lg text-on-scrim backdrop-blur-sm transition-all duration-300 hover:border-on-scrim hover:bg-on-scrim hover:text-scrim md:h-13 md:w-13 md:text-xl ${
         side === "left" ? "left-3 md:left-6" : "right-3 md:right-6"
       }`}
     >

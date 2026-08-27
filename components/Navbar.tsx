@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { BagIcon, CloseIcon, HeartIcon, MenuIcon } from "@/components/icons";
 import { useStore } from "@/components/StoreProvider";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const LINKS = [
   { href: "/products", label: "Products" },
@@ -121,6 +122,8 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
           </ul>
 
           <div className="flex items-center gap-1 sm:gap-2">
+            <ThemeToggle />
+
             <Link
               href="/favorites"
               className="relative p-2 text-xl text-ink transition-opacity hover:opacity-60"
@@ -182,7 +185,7 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
             type="button"
             aria-label="Close menu"
             onClick={() => setMenuOpen(false)}
-            className="absolute inset-0 h-full w-full cursor-default bg-ink/30 backdrop-blur-sm"
+            className="absolute inset-0 h-full w-full cursor-default bg-scrim/30 backdrop-blur-sm"
           />
           <div
             id="mobile-menu"
@@ -224,7 +227,12 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
               )}
             </ul>
 
-            <div className="mt-auto border-t border-line p-5">
+            <div className="flex items-center justify-between border-t border-line px-5 py-3">
+              <span className="eyebrow text-muted">Appearance</span>
+              <ThemeToggle className="-mr-2" />
+            </div>
+
+            <div className="border-t border-line p-5">
               {!isLoaded ? (
                 <div className="h-10 w-full animate-pulse bg-bone-deep" aria-hidden="true" />
               ) : isSignedIn ? (

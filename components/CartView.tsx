@@ -101,7 +101,7 @@ export function CartView() {
                       </Link>
                     </h2>
                     {!product.inStock && (
-                      <p className="mt-1 text-xs text-red-700">
+                      <p className="mt-1 text-xs text-danger">
                         This piece has sold out.
                       </p>
                     )}
@@ -154,7 +154,7 @@ export function CartView() {
       </section>
 
       <aside aria-labelledby="summary-heading" className="lg:sticky lg:top-28 lg:self-start">
-        <div className="border border-line bg-white/60 p-6 md:p-8">
+        <div className="border border-line bg-surface p-6 md:p-8">
           <h2 id="summary-heading" className="font-display text-2xl">
             Order summary
           </h2>

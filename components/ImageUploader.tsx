@@ -108,7 +108,7 @@ export function ImageUploader({
               setError(null);
             }}
             aria-label="Remove this image"
-            className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-bone/90 text-base text-ink transition-colors hover:bg-ink hover:text-bone"
+            className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-on-scrim/90 text-base text-scrim transition-colors hover:bg-scrim hover:text-on-scrim"
           >
             <CloseIcon />
           </button>
@@ -166,7 +166,7 @@ export function ImageUploader({
       {error && (
         <p
           role="alert"
-          className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-red-700"
+          className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-danger"
         >
           <AlertIcon className="mt-0.5 shrink-0 text-sm" />
           {error}

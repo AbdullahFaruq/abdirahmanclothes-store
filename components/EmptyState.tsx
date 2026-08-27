@@ -18,12 +18,12 @@ export function EmptyState({
   return (
     <div
       className={`flex flex-col items-center border px-6 py-20 text-center ${
-        tone === "error" ? "border-red-200 bg-red-50/60" : "border-line bg-white/50"
+        tone === "error" ? "border-danger-line bg-danger-surface/60" : "border-line bg-surface"
       }`}
     >
       {icon && (
         <span
-          className={`mb-5 text-3xl ${tone === "error" ? "text-red-500" : "text-muted"}`}
+          className={`mb-5 text-3xl ${tone === "error" ? "text-danger" : "text-muted"}`}
         >
           {icon}
         </span>

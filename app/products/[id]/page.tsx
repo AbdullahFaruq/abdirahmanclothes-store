@@ -78,7 +78,7 @@ export default async function ProductDetailPage(props: PageProps<"/products/[id]
             className="object-cover"
           />
           {!product.inStock && (
-            <span className="absolute left-4 top-4 bg-ink px-3 py-1.5 text-[0.625rem] uppercase tracking-[0.16em] text-bone">
+            <span className="absolute left-4 top-4 bg-scrim px-3 py-1.5 text-[0.625rem] uppercase tracking-[0.16em] text-on-scrim">
               Sold out
             </span>
           )}

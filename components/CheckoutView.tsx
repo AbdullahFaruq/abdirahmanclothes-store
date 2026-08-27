@@ -134,7 +134,7 @@ export function CheckoutView() {
         </p>
 
         <div className="mt-7 flex flex-col gap-5">
-          <article className="border border-line bg-white/60 p-6">
+          <article className="border border-line bg-surface p-6">
             <h3 className="eyebrow text-brass">{BANK_TRANSFER.label}</h3>
             <dl className="mt-4">
               <CopyField label="Bank" value={BANK_TRANSFER.bank} />
@@ -147,7 +147,7 @@ export function CheckoutView() {
             </dl>
           </article>
 
-          <article className="border border-line bg-white/60 p-6">
+          <article className="border border-line bg-surface p-6">
             <h3 className="eyebrow text-brass">{EVC_PLUS.label}</h3>
             <dl className="mt-4">
               <CopyField
@@ -167,7 +167,7 @@ export function CheckoutView() {
           href={whatsAppLink(message)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-7 flex w-full items-center justify-center gap-3 bg-[#25D366] px-6 py-4 text-xs font-medium uppercase tracking-[0.14em] text-ink transition-colors duration-300 hover:bg-[#1EBE5B]"
+          className="mt-7 flex w-full items-center justify-center gap-3 bg-[#25D366] px-6 py-4 text-xs font-medium uppercase tracking-[0.14em] text-scrim transition-colors duration-300 hover:bg-[#1EBE5B]"
         >
           <WhatsAppIcon className="text-lg" />
           Confirm on WhatsApp

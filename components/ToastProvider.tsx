@@ -66,7 +66,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             key={item.id}
             className={`animate-rise pointer-events-auto flex items-center gap-3 border px-4 py-3 shadow-[0_18px_40px_-24px_rgba(11,11,12,0.55)] ${
               item.tone === "error"
-                ? "border-red-200 bg-red-50 text-red-900"
+                ? "border-danger-line bg-danger-surface text-danger"
                 : "border-line bg-ink text-bone"
             }`}
           >
@@ -79,7 +79,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               onClick={() => dismiss(item.id)}
               aria-label="Dismiss notification"
               className={`shrink-0 text-base transition-opacity hover:opacity-60 ${
-                item.tone === "error" ? "text-red-900" : "text-bone"
+                item.tone === "error" ? "text-danger" : "text-bone"
               }`}
             >
               <CloseIcon />

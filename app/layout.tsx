@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { StoreProvider } from "@/components/StoreProvider";
 import { ToastProvider } from "@/components/ToastProvider";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 import { getStoreUser } from "@/lib/auth";
 import "./globals.css";
 
@@ -40,8 +41,16 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <ClerkProvider>
       <html
         lang="en"
+        // The pre-paint script below sets data-theme, so the server HTML and
+        // the hydrated DOM differ on <html> by design.
+        suppressHydrationWarning
         className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
       >
+        <head>
+          {/* Runs before first paint so the correct theme is applied with no
+              flash of the wrong one. */}
+          <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        </head>
         <body className="flex min-h-full flex-col bg-bone text-ink">
           <a
             href="#main"

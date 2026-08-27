@@ -38,7 +38,7 @@ export function ProductCard({
         <FavoriteButton product={product} />
 
         {!product.inStock && (
-          <span className="absolute left-3 top-3 bg-ink px-2.5 py-1 text-[0.625rem] uppercase tracking-[0.16em] text-bone">
+          <span className="absolute left-3 top-3 bg-scrim px-2.5 py-1 text-[0.625rem] uppercase tracking-[0.16em] text-on-scrim">
             Sold out
           </span>
         )}

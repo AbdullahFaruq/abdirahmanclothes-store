@@ -49,7 +49,7 @@ export default async function AdminOverviewPage() {
       {unreachable && (
         <p
           role="alert"
-          className="mb-8 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+          className="mb-8 border border-danger-line bg-danger-surface px-4 py-3 text-sm text-danger"
         >
           Some data could not be loaded — check that MONGODB_URI is set and the
           database is reachable.
@@ -61,7 +61,7 @@ export default async function AdminOverviewPage() {
           <Link
             key={stat.label}
             href={stat.href}
-            className="border border-line bg-white/60 p-6 transition-colors hover:border-ink"
+            className="border border-line bg-surface p-6 transition-colors hover:border-ink"
           >
             <p className="eyebrow text-muted">{stat.label}</p>
             <p className="mt-3 font-display text-4xl tabular-nums">{stat.value}</p>
@@ -72,7 +72,7 @@ export default async function AdminOverviewPage() {
       <div className="mt-12 grid gap-4 sm:grid-cols-2">
         <Link
           href="/admin/products/new"
-          className="border border-line bg-white/60 p-8 transition-colors hover:border-ink"
+          className="border border-line bg-surface p-8 transition-colors hover:border-ink"
         >
           <h2 className="font-display text-2xl">Add a product</h2>
           <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -82,7 +82,7 @@ export default async function AdminOverviewPage() {
 
         <Link
           href="/admin/hero"
-          className="border border-line bg-white/60 p-8 transition-colors hover:border-ink"
+          className="border border-line bg-surface p-8 transition-colors hover:border-ink"
         >
           <h2 className="font-display text-2xl">Manage the hero</h2>
           <p className="mt-2 text-sm leading-relaxed text-muted">

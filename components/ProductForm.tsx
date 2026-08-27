@@ -157,7 +157,7 @@ export function ProductForm({ product }: { product?: Product }) {
         {error && (
           <p
             role="alert"
-            className="flex items-start gap-2 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+            className="flex items-start gap-2 border border-danger-line bg-danger-surface px-4 py-3 text-sm text-danger"
           >
             <AlertIcon className="mt-0.5 shrink-0" />
             {error}

@@ -2,23 +2,93 @@
 
 /* --------------------------------------------------------------------------
    Abdirahman Asad Store — design tokens
-   A deliberately single-look, light editorial palette: ink on bone, with one
-   muted brass accent. Restraint is the brand.
+   An editorial palette: ink on bone with one brass accent, in a light and a
+   dark theme. Names stay semantic — "bone" means page background and "ink"
+   means primary text, whichever theme is active.
    -------------------------------------------------------------------------- */
 @theme {
+  /* Tailwind generates utilities that reference these as var(--color-*), so
+     re-declaring the variables per theme below re-themes every utility without
+     touching a single component. */
   --color-ink: #0b0b0c;
   --color-ink-soft: #2e2e31;
-  --color-muted: #6f6f76;
+  --color-muted: #65656c;
   --color-line: #e3ded6;
   --color-bone: #f7f5f1;
   --color-bone-deep: #efeae2;
-  --color-brass: #a8834f;
-  --color-brass-soft: #c9a875;
+  --color-surface: #fdfcfa;
+  --color-brass: #8a6a39;
+  --color-brass-soft: #a8834f;
+
+  /* Error states. */
+  --color-danger: #a32b22;
+  --color-danger-surface: #fdf2f2;
+  --color-danger-line: #f0c9c6;
+
+  /* Chrome that sits on top of photography. Photographs do not change with the
+     theme, so neither do these — a light chip on a garment shot stays a light
+     chip in both themes. */
+  --color-scrim: #0b0b0c;
+  --color-on-scrim: #f7f5f1;
 
   --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --ease-luxe: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Dark theme
+   Warm near-black rather than pure black, and warm off-white rather than pure
+   white — the ivory/brass character of the brand survives the inversion, and
+   #fff on #000 halation is avoided. Elevation inverts too: surfaces get
+   LIGHTER as they rise, where in the light theme they get darker.
+   Every pair below is verified at >= 4.5:1.
+   -------------------------------------------------------------------------- */
+@layer theme {
+  /* "system" is the default: no data-theme attribute is set. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --color-ink: #f2efe9;
+      --color-ink-soft: #d5cfc6;
+      --color-muted: #a09990;
+      --color-line: #302c28;
+      --color-bone: #121110;
+      --color-bone-deep: #1e1b19;
+      --color-surface: #191614;
+      --color-brass: #d0af79;
+      --color-brass-soft: #c9a875;
+
+      --color-danger: #f0a49a;
+      --color-danger-surface: #241513;
+      --color-danger-line: #4a2b26;
+
+      color-scheme: dark;
+    }
+  }
+
+  /* An explicit choice always wins over the system preference. */
+  :root[data-theme="dark"] {
+    --color-ink: #f2efe9;
+    --color-ink-soft: #d5cfc6;
+    --color-muted: #a09990;
+    --color-line: #302c28;
+    --color-bone: #121110;
+    --color-bone-deep: #1e1b19;
+    --color-surface: #191614;
+    --color-brass: #d0af79;
+    --color-brass-soft: #c9a875;
+
+    --color-danger: #f0a49a;
+    --color-danger-surface: #241513;
+    --color-danger-line: #4a2b26;
+
+    color-scheme: dark;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
 }
 
 @layer base {
@@ -30,6 +100,11 @@
   body {
     background-color: var(--color-bone);
     color: var(--color-ink);
+    /* Eases the swap between themes; the media query at the end of this file
+       removes it for anyone who asked for reduced motion. */
+    transition:
+      background-color 0.35s var(--ease-luxe),
+      color 0.35s var(--ease-luxe);
     font-family: var(--font-sans);
     font-feature-settings: "kern", "liga";
     -webkit-font-smoothing: antialiased;
