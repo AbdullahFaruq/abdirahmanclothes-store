@@ -60,17 +60,17 @@ export function ProductCard({
         <div className="mt-4 flex flex-col gap-2">
           {product.inStock ? (
             <>
-              <BuyNowButton product={product} className="w-full !px-4 !py-3 !text-[0.6875rem]" />
+              <BuyNowButton product={product} className="w-full !px-2 !py-3 !text-[0.6875rem] sm:!px-4" />
               <AddToCartButton
                 product={product}
-                className="w-full !px-4 !py-3 !text-[0.6875rem]"
+                className="w-full !px-2 !py-3 !text-[0.6875rem] sm:!px-4"
               />
             </>
           ) : (
             <button
               type="button"
               disabled
-              className="btn btn-outline w-full !px-4 !py-3 !text-[0.6875rem]"
+              className="btn btn-outline w-full !px-2 !py-3 !text-[0.6875rem] sm:!px-4"
             >
               Sold out
             </button>

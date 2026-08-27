@@ -34,7 +34,7 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-line bg-bone-deep">
       <div className="shell py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)] md:gap-8">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)] md:gap-8">
           <div className="max-w-sm">
             <p className="font-display text-2xl leading-tight">
               Abdirahman Asad
@@ -61,23 +61,25 @@ export function Footer() {
             </address>
           </div>
 
-          {COLUMNS.map((column) => (
-            <nav key={column.heading} aria-label={column.heading}>
-              <h2 className="eyebrow text-muted">{column.heading}</h2>
-              <ul className="mt-5 flex flex-col gap-3">
-                {column.links.map((link) => (
-                  <li key={`${column.heading}-${link.label}`}>
-                    <Link
-                      href={link.href}
-                      className="link-underline text-sm text-ink-soft transition-colors hover:text-ink"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
+          <div className="grid grid-cols-3 gap-x-4 gap-y-8 md:contents">
+            {COLUMNS.map((column) => (
+              <nav key={column.heading} aria-label={column.heading}>
+                <h2 className="eyebrow text-muted">{column.heading}</h2>
+                <ul className="mt-5 flex flex-col gap-3">
+                  {column.links.map((link) => (
+                    <li key={`${column.heading}-${link.label}`}>
+                      <Link
+                        href={link.href}
+                        className="link-underline text-sm text-ink-soft transition-colors hover:text-ink"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-line pt-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">

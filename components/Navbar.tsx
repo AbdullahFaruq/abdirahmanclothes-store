@@ -84,7 +84,7 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
 
           <Link
             href="/"
-            className="font-display text-lg font-normal leading-none tracking-[0.02em] text-ink transition-opacity hover:opacity-70 sm:text-xl md:text-[1.4rem]"
+            className="font-display text-base font-normal leading-none tracking-[0.02em] text-ink transition-opacity hover:opacity-70 sm:text-xl md:text-[1.4rem]"
           >
             Abdirahman Asad
             <span className="ml-1.5 font-sans text-[0.6rem] uppercase tracking-[0.28em] text-muted">
@@ -122,7 +122,11 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
           </ul>
 
           <div className="flex items-center gap-1 sm:gap-2">
-            <ThemeToggle />
+            {/* Below sm the toolbar has no room for this without wrapping the
+                wordmark onto two lines; the drawer carries it there instead. */}
+            <div className="hidden sm:flex">
+              <ThemeToggle />
+            </div>
 
             <Link
               href="/favorites"
