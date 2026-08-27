@@ -53,10 +53,10 @@ export function Footer() {
               Mogadishu-Somalia
               <br />
               <a
-                href="mailto:meenka3126@gmail.com"
+                href="mailto:meenka444@gmail.com"
                 className="link-underline mt-2 inline-block text-ink"
               >
-                meenka3126@gmail.com
+                meenka444@gmail.com
               </a>
             </address>
           </div>
