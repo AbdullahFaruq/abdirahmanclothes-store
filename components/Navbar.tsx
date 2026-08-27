@@ -69,7 +69,7 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
           of the viewport. */}
       <header className="sticky top-0 z-50 border-b border-line bg-bone/85 backdrop-blur-md">
       <nav aria-label="Primary" className="shell">
-        <div className="flex h-16 items-center justify-between gap-4 md:h-20">
+        <div className="flex h-16 items-center justify-between gap-2 sm:gap-4 md:h-20">
           {/* Mobile menu toggle */}
           <button
             type="button"
@@ -77,7 +77,7 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
             aria-label="Open menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="-ml-2 p-2 text-xl transition-opacity hover:opacity-60 md:hidden"
+            className="-ml-2 p-2 text-xl transition-opacity hover:opacity-60 lg:hidden"
           >
             <MenuIcon />
           </button>
@@ -87,13 +87,13 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
             className="font-display text-base font-normal leading-none tracking-[0.02em] text-ink transition-opacity hover:opacity-70 sm:text-xl md:text-[1.4rem]"
           >
             Abdirahman Asad
-            <span className="ml-1.5 font-sans text-[0.6rem] uppercase tracking-[0.28em] text-muted">
+            <span className="ml-1.5 hidden font-sans text-[0.6rem] uppercase tracking-[0.28em] text-muted xs:inline">
               Store
             </span>
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden items-center gap-9 md:flex">
+          <ul className="hidden items-center gap-9 lg:flex">
             {LINKS.map((link) => (
               <li key={link.href}>
                 <Link
@@ -122,11 +122,7 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
           </ul>
 
           <div className="flex items-center gap-1 sm:gap-2">
-            {/* Below sm the toolbar has no room for this without wrapping the
-                wordmark onto two lines; the drawer carries it there instead. */}
-            <div className="hidden sm:flex">
-              <ThemeToggle />
-            </div>
+            <ThemeToggle />
 
             <Link
               href="/favorites"
@@ -184,7 +180,7 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
 
       {/* Mobile drawer */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] md:hidden">
+        <div className="fixed inset-0 z-[60] lg:hidden">
           <button
             type="button"
             aria-label="Close menu"
@@ -231,12 +227,7 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
               )}
             </ul>
 
-            <div className="flex items-center justify-between border-t border-line px-5 py-3">
-              <span className="eyebrow text-muted">Appearance</span>
-              <ThemeToggle className="-mr-2" />
-            </div>
-
-            <div className="border-t border-line p-5">
+            <div className="mt-auto border-t border-line p-5">
               {!isLoaded ? (
                 <div className="h-10 w-full animate-pulse bg-bone-deep" aria-hidden="true" />
               ) : isSignedIn ? (
