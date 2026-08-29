@@ -5,9 +5,9 @@ const COLUMNS = [
     heading: "Shop",
     links: [
       { href: "/products", label: "All products" },
-      { href: "/products?category=Outerwear", label: "Outerwear" },
-      { href: "/products?category=Knitwear", label: "Knitwear" },
-      { href: "/products?category=Accessories", label: "Accessories" },
+      { href: "/products?category=Goono", label: "Goono" },
+      { href: "/products?category=Kastumo", label: "Kastumo" },
+      { href: "/products?category=Boorso", label: "Boorso" },
     ],
   },
   {
@@ -23,9 +23,9 @@ const COLUMNS = [
     heading: "Store",
     links: [
       { href: "/products", label: "New arrivals" },
-      { href: "/products?category=Shirts", label: "Shirts" },
-      { href: "/products?category=Trousers", label: "Trousers" },
-      { href: "/products?category=Dresses", label: "Dresses" },
+      { href: "/products?category=Shaar", label: "Shaar" },
+      { href: "/products?category=Surwaal", label: "Surwaal" },
+      { href: "/products?category=Kabo", label: "Kabo" },
     ],
   },
 ];

@@ -39,13 +39,23 @@ export type ActionResult<T = undefined> =
   | { ok: true; data: T }
   | { ok: false; error: string };
 
+/** Offered in the admin product form, in this order. */
 export const PRODUCT_CATEGORIES = [
-  "Outerwear",
-  "Knitwear",
-  "Shirts",
-  "Trousers",
-  "Dresses",
-  "Accessories",
+  "Safaleti",
+  "Goono",
+  "Qamaar",
+  "Kastumo",
+  "Garan",
+  "Funanad",
+  "Surwaal",
+  "Kabo",
+  "Shaar",
+  "Make up",
+  "Boorso",
+  "Buumo",
+  "Funanad Maliyad",
+  "Kabaha sports",
+  "Kabo labis",
 ] as const;
 
 export type ProductCategory = (typeof PRODUCT_CATEGORIES)[number];

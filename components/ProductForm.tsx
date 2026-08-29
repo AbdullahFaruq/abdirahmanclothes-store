@@ -21,6 +21,15 @@ export function ProductForm({ product }: { product?: Product }) {
 
   const isEdit = Boolean(product);
 
+  // A product saved under an older category list would otherwise render with a
+  // blank select, silently hiding what it is currently filed under. Keep it as
+  // an option so the admin can see it and choose whether to re-file it.
+  const legacyCategory =
+    product?.category &&
+    !(PRODUCT_CATEGORIES as readonly string[]).includes(product.category)
+      ? product.category
+      : null;
+
   async function onSubmit(formData: FormData) {
     setError(null);
 
@@ -106,6 +115,11 @@ export function ProductForm({ product }: { product?: Product }) {
               <option value="" disabled>
                 Select a category
               </option>
+              {legacyCategory && (
+                <option value={legacyCategory}>
+                  {legacyCategory} (current — not in the list)
+                </option>
+              )}
               {PRODUCT_CATEGORIES.map((category) => (
                 <option key={category} value={category}>
                   {category}
