@@ -31,9 +31,9 @@
   --color-scrim: #0b0b0c;
   --color-on-scrim: #f7f5f1;
 
-  /* Below this the navbar cannot hold the full lockup plus four full-size
-     controls, so the decorative "STORE" suffix steps aside. */
-  --breakpoint-xs: 400px;
+  /* At 320px the toolbar cannot hold the full lockup plus four full-size
+     controls; the decorative "Store" suffix steps aside below this. */
+  --breakpoint-xs: 360px;
 
   --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

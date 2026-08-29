@@ -16,9 +16,9 @@ export const EVC_PLUS = {
   label: "EVC Plus",
   accountName: "Abdirahman Asad Abdirahman",
   /** Human-readable form, shown on the page. */
-  displayNumber: "+252 615 06 31 26",
+  displayNumber: "+252 613 65 28 92",
   /** Digits only — the form wa.me and tel: links require. */
-  dialNumber: "252615063126",
+  dialNumber: "252613652892",
 } as const;
 
 /** WhatsApp number orders are confirmed on. */

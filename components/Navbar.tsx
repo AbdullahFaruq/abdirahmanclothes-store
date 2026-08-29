@@ -86,7 +86,7 @@ export function Navbar({ isAdmin }: { isAdmin: boolean }) {
             href="/"
             className="font-display text-base font-normal leading-none tracking-[0.02em] text-ink transition-opacity hover:opacity-70 sm:text-xl md:text-[1.4rem]"
           >
-            Abdirahman Asad
+            QAANGAAR
             <span className="ml-1.5 hidden font-sans text-[0.6rem] uppercase tracking-[0.28em] text-muted xs:inline">
               Store
             </span>
