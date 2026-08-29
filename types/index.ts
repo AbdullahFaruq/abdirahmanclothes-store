@@ -56,6 +56,7 @@ export const PRODUCT_CATEGORIES = [
   "Funanad Maliyad",
   "Kabaha sports",
   "Kabo labis",
+  "Saako",
 ] as const;
 
 export type ProductCategory = (typeof PRODUCT_CATEGORIES)[number];

@@ -37,7 +37,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)] md:gap-8">
           <div className="max-w-sm">
             <p className="font-display text-2xl leading-tight">
-              Abdirahman Asad
+              QAANGAAR
               <span className="ml-2 font-sans text-[0.6rem] uppercase tracking-[0.28em] text-muted">
                 Store
               </span>
@@ -84,7 +84,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-line pt-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} Abdirahman Asad Store. All rights
+            &copy; {new Date().getFullYear()} QAANGAAR Store. All rights
             reserved.
           </p>
           <p className="flex flex-wrap gap-x-6 gap-y-2">
