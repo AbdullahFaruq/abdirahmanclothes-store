@@ -1,6 +1,7 @@
 "use server";
 
 import { getProductsByIds } from "@/lib/data";
+import { MAX_RESOLVE_IDS } from "@/lib/catalogLimits";
 import type { ActionResult, Product } from "@/types";
 
 /**
@@ -13,7 +14,7 @@ export async function resolveProducts(ids: string[]): Promise<ActionResult<Produ
   try {
     if (!Array.isArray(ids) || ids.length === 0) return { ok: true, data: [] };
     // Cap the request so a tampered localStorage payload cannot fan out.
-    return { ok: true, data: await getProductsByIds(ids.slice(0, 200)) };
+    return { ok: true, data: await getProductsByIds(ids.slice(0, MAX_RESOLVE_IDS)) };
   } catch (error) {
     console.error("[resolveProducts]", error);
     return { ok: false, error: "We couldn't load these items. Please try again." };

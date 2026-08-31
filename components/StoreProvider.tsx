@@ -39,6 +39,14 @@ type StoreContextValue = {
   removeFromCart: (product: { id: string; name: string }) => void;
   clearCart: () => void;
   toggleFavorite: (product: { id: string; name: string }) => void;
+  /**
+   * Drops stored entries whose product no longer exists. Deleting a product
+   * clears it from server-side carts, but nothing can reach a browser's
+   * localStorage — so the bag kept counting items the cart page could not
+   * show. Pass the ids the catalogue actually returned.
+   */
+  pruneCart: (availableIds: string[]) => void;
+  pruneFavorites: (availableIds: string[]) => void;
 };
 
 const StoreContext = createContext<StoreContextValue | null>(null);
@@ -177,6 +185,37 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     [cart, favorites, isSignedIn, toast],
   );
 
+  const pruneCart = useCallback(
+    (availableIds: string[]) => {
+      const alive = new Set(availableIds);
+      const kept = cart.filter((item) => alive.has(item.productId));
+      if (kept.length === cart.length) return;
+
+      const removed = cart.length - kept.length;
+      // Tell the shopper rather than letting the count quietly drop.
+      toast(
+        removed === 1
+          ? "One piece in your bag is no longer available, so we removed it."
+          : `${removed} pieces in your bag are no longer available, so we removed them.`,
+      );
+      commitCart(kept);
+    },
+    [cart, commitCart, toast],
+  );
+
+  const pruneFavorites = useCallback(
+    (availableIds: string[]) => {
+      const alive = new Set(availableIds);
+      const kept = favorites.filter((id) => alive.has(id));
+      if (kept.length === favorites.length) return;
+
+      setStoreState({ cart, favorites: kept });
+      // The server rows were already removed with the product itself, so there
+      // is nothing to persist here.
+    },
+    [cart, favorites],
+  );
+
   const value = useMemo<StoreContextValue>(
     () => ({
       cart,
@@ -192,6 +231,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removeFromCart,
       clearCart,
       toggleFavorite,
+      pruneCart,
+      pruneFavorites,
     }),
     [
       cart,
@@ -202,6 +243,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removeFromCart,
       clearCart,
       toggleFavorite,
+      pruneCart,
+      pruneFavorites,
     ],
   );
 

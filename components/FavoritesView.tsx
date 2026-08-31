@@ -1,14 +1,26 @@
 "use client";
 
+import { useEffect } from "react";
+
 import { EmptyState } from "@/components/EmptyState";
 import { ProductCard } from "@/components/ProductCard";
 import { useStore } from "@/components/StoreProvider";
 import { useResolvedProducts } from "@/components/useResolvedProducts";
+import { MAX_RESOLVE_IDS } from "@/lib/catalogLimits";
 import { AlertIcon, HeartIcon } from "@/components/icons";
 
 export function FavoritesView() {
-  const { favorites, hydrated } = useStore();
+  const { favorites, hydrated, pruneFavorites } = useStore();
   const { products, loading, error } = useResolvedProducts(favorites);
+
+  // Same reconciliation as the bag: drop hearts whose product is gone, but
+  // only when the lookup actually returned.
+  useEffect(() => {
+    // A truncated lookup would report the overflow as missing.
+    if (loading || error || favorites.length === 0) return;
+    if (favorites.length > MAX_RESOLVE_IDS) return;
+    pruneFavorites(products.map((product) => product.id));
+  }, [loading, error, products, favorites, pruneFavorites]);
 
   if (!hydrated || (loading && favorites.length > 0)) {
     return (

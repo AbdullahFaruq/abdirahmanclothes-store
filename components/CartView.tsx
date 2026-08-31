@@ -2,20 +2,32 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 import { EmptyState } from "@/components/EmptyState";
 import { useStore } from "@/components/StoreProvider";
 import { useResolvedProducts } from "@/components/useResolvedProducts";
+import { MAX_RESOLVE_IDS } from "@/lib/catalogLimits";
 import { AlertIcon, BagIcon, MinusIcon, PlusIcon, TrashIcon } from "@/components/icons";
 import { formatPrice } from "@/lib/format";
 
 const FREE_SHIPPING_THRESHOLD = 250;
 
 export function CartView() {
-  const { cart, hydrated, setQuantity, removeFromCart, clearCart } = useStore();
+  const { cart, hydrated, setQuantity, removeFromCart, clearCart, pruneCart } =
+    useStore();
   const { products, loading, error } = useResolvedProducts(
     cart.map((item) => item.productId),
   );
+
+  // Reconcile only once the catalogue lookup has genuinely succeeded — a
+  // transient failure must never empty someone's bag.
+  useEffect(() => {
+    // A truncated lookup would report the overflow as missing.
+    if (loading || error || cart.length === 0) return;
+    if (cart.length > MAX_RESOLVE_IDS) return;
+    pruneCart(products.map((product) => product.id));
+  }, [loading, error, products, cart, pruneCart]);
 
   // Join the client's quantities onto the server's product data. Products that
   // no longer exist simply drop out of the bag.
